@@ -1,4 +1,4 @@
-package com.tingeso.proveedor.repositories;
+package com.tingeso.proveedorservice.repositories;
 
 import com.tingeso.proveedor.entities.ProveedorEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
