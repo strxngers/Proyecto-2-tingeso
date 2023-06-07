@@ -3,14 +3,14 @@ devtools:
   restart:
     aditional-paths: src/main/java
 application:
-  name: proveedor-service
+  name: acopio-service
 cloud:
   config:
     enabled: true
     uri: http://localhost:8081
 datasource:
   driver-class-name: org.postgresql.Driver
-  url: jdbc:postgresql://localhost:5432/proveedor
+  url: jdbc:postgresql://localhost:5432/acopio
   username: postgres
   password: 2214
 jpa:

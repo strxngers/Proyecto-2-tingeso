@@ -1,9 +1,9 @@
-package com.tingeso.proveedor.services;
+package com.tingeso.proveedorservice.services;
 
 import com.tingeso.proveedor.entities.ProveedorEntity;
 import com.tingeso.proveedor.models.AcopioModel;
-import com.tingeso.proveedor.models.CalidadModel;
-import com.tingeso.proveedor.repositories.ProveedorRepository;
+//import com.tingeso.proveedor.models.CalidadModel;
+import com.tingeso.proveedorservice.repositories.ProveedorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -17,10 +17,9 @@ public class ProveedorService {
     @Autowired
     RestTemplate restTemplate;
 
-    public ProveedorEntity saveProveedor(Integer id_proveedor, String nombre, String categoria, String retencion) {
-        ProveedorEntity proveedor = new ProveedorEntity(id_proveedor, nombre, categoria, retencion);
-        if (!estaRegistrado(proveedor)) {
-            return proveedorRepository.save(proveedor);
+    public ProveedorEntity saveProveedor(ProveedorEntity prov) {
+        if (!estaRegistrado(prov)) {
+            return proveedorRepository.save(prov);
         }else
             return null;
     }
@@ -57,8 +56,10 @@ public class ProveedorService {
         List<AcopioModel> acopios = restTemplate.getForObject("http://acopio-service/acopio/porproveedor/" + id_proveedor, List.class);
         return acopios;
     }
+
+    /*
     public List<CalidadModel> getCalidad(Integer id_proveedor) {
         List<CalidadModel> calidad = restTemplate.getForObject("http://calidad-service/calidad/porproveedor/" + id_proveedor, List.class);
         return calidad;
-    }
+    }*/
 }
