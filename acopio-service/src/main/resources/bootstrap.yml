@@ -1,20 +1,14 @@
 spring:
-devtools:
-  restart:
-    aditional-paths: src/main/java
-application:
-  name: acopio-service
-cloud:
-  config:
-    enabled: true
-    uri: http://localhost:8081
-datasource:
-  driver-class-name: org.postgresql.Driver
-  url: jdbc:postgresql://localhost:5432/acopio
-  username: postgres
-  password: 2214
-jpa:
-  show-sql: true
-  hibernate:
-    dialect: org.hibernate.dialect.PostgreSQLDialect
-    ddl-auto: create
+  application:
+    name: acopio-service
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8081
+  datasource:
+    url: jdbc:postgresql://localhost:5432/acopio
+    username: postgres
+    password: 2214
+  jpa:
+    hibernate:
+      ddl-auto: update

@@ -10,13 +10,9 @@
         <module name="proveedor-service" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="acopio-service" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="acopio-service" options="-parameters" />
       <module name="proveedor-service" options="-parameters" />
     </option>
   </component>

@@ -51,7 +51,6 @@ public class AcopioService {
         }
     }
 
-    @Generated
     public void leerCsv(String direccion){
         String texto = "";
         BufferedReader bf = null;
@@ -88,7 +87,6 @@ public class AcopioService {
         acopioRepository.save(data);
     }
 
-    @Generated
     public void guardarDataDB(String fecha, String turno, Integer id_proveedor, Integer kls_leche) {
         AcopioEntity newData = new AcopioEntity();
         newData.setFecha(LocalDate.parse(fecha, DateTimeFormatter.ofPattern("yyyy/MM/dd")));
