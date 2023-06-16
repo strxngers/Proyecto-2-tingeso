@@ -3,7 +3,10 @@ package com.tingeso.proveedorservice.services;
 import com.tingeso.proveedor.entities.ProveedorEntity;
 import com.tingeso.proveedor.models.AcopioModel;
 //import com.tingeso.proveedor.models.CalidadModel;
+<<<<<<< HEAD:proveedor-service/src/main/java/com/tingeso/proveedorservice/services/ProveedorService.java
 import com.tingeso.proveedorservice.models.CalidadModel;
+=======
+>>>>>>> main:backend/proveedor-service/src/main/java/com/tingeso/proveedorservice/services/ProveedorService.java
 import com.tingeso.proveedorservice.repositories.ProveedorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,8 +61,13 @@ public class ProveedorService {
         return acopios;
     }
 
+<<<<<<< HEAD:proveedor-service/src/main/java/com/tingeso/proveedorservice/services/ProveedorService.java
         public List<CalidadModel> getCalidad(Integer id_proveedor) {
+=======
+    /*
+    public List<CalidadModel> getCalidad(Integer id_proveedor) {
+>>>>>>> main:backend/proveedor-service/src/main/java/com/tingeso/proveedorservice/services/ProveedorService.java
         List<CalidadModel> calidad = restTemplate.getForObject("http://calidad-service/calidad/porproveedor/" + id_proveedor, List.class);
         return calidad;
-    }
+    }*/
 }
