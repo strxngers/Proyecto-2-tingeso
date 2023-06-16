@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1a1357ff-4192-47be-b53a-d492759b377b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../acopio-service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acopio-service/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acopio-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acopio-service/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acopio-service/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acopio-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acopio-service/src/main/java/com/tingeso/acopioservice/AcopioServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acopio-service/src/main/java/com/tingeso/acopioservice/config/RestTemplateConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acopio-service/src/main/java/com/tingeso/acopioservice/entities/AcopioEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acopio-service/src/main/java/com/tingeso/acopioservice/models/ProveedorModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acopio-service/src/main/java/com/tingeso/acopioservice/repositories/AcopioRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acopio-service/src/main/java/com/tingeso/acopioservice/services/AcopioService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acopio-service/src/main/resources/bootstrap.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../acopio-service/src/test/java/com/tingeso/acopioservice/AcopioServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../calidad-service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../calidad-service/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../calidad-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../calidad-service/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../calidad-service/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../calidad-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../calidad-service/src/main/java/com/tingeso/calidadservice/CalidadServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../calidad-service/src/main/java/com/tingeso/calidadservice/controllers/CalidadController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../calidad-service/src/main/java/com/tingeso/calidadservice/entities/CalidadEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../calidad-service/src/main/java/com/tingeso/calidadservice/repositories/CalidadRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../calidad-service/src/main/java/com/tingeso/calidadservice/services/CalidadService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../calidad-service/src/main/resources/bootstrap.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../calidad-service/src/test/java/com/tingeso/calidadservice/CalidadServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tingeso/configservice/ConfigServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tingeso/configservice/ConfigServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pago-service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pago-service/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pago-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pago-service/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pago-service/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pago-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pago-service/src/main/java/com/tingeso/pagoservice/PagoServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pago-service/src/main/java/com/tingeso/pagoservice/entities/PagoEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pago-service/src/main/java/com/tingeso/pagoservice/models/AcopioModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pago-service/src/main/java/com/tingeso/pagoservice/models/CalidadModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pago-service/src/main/java/com/tingeso/pagoservice/models/ProveedorModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pago-service/src/main/java/com/tingeso/pagoservice/repositories/PagoRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pago-service/src/main/java/com/tingeso/pagoservice/services/PagoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pago-service/src/main/resources/bootstrap.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pago-service/src/test/java/com/tingeso/pagoservice/PagoServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proveedor-service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proveedor-service/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proveedor-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proveedor-service/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proveedor-service/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proveedor-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proveedor-service/src/main/java/com/tingeso/proveedorservice/ProveedorServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proveedor-service/src/main/java/com/tingeso/proveedorservice/config/RestTemplateConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proveedor-service/src/main/java/com/tingeso/proveedorservice/controllers/ProveedorController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proveedor-service/src/main/java/com/tingeso/proveedorservice/entities/ProveedorEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proveedor-service/src/main/java/com/tingeso/proveedorservice/models/AcopioModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proveedor-service/src/main/java/com/tingeso/proveedorservice/models/CalidadModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proveedor-service/src/main/java/com/tingeso/proveedorservice/repositories/ProveedorRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proveedor-service/src/main/java/com/tingeso/proveedorservice/services/ProveedorService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proveedor-service/src/main/resources/bootstrap.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proveedor-service/src/test/java/com/tingeso/proveedorservice/ProveedorServiceApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2QrBdsxwg8EfMffhCIYuClifQOu" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Elena/Documents/GitHub/Proyecto-2-tingeso/eureka-service",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "spring.configuration.checksum": "40b11c1707c80f330898336a095230a2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="ConfigServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="config-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.tingeso.configservice.ConfigServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1a1357ff-4192-47be-b53a-d492759b377b" name="Changes" comment="" />
+      <created>1686101914669</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686101914669</updated>
+      <workItem from="1686101916940" duration="195000" />
+      <workItem from="1686102123790" duration="13000" />
+      <workItem from="1686102765350" duration="642000" />
+      <workItem from="1686103810696" duration="279000" />
+      <workItem from="1686515197115" duration="1946000" />
+      <workItem from="1686530619308" duration="32000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
