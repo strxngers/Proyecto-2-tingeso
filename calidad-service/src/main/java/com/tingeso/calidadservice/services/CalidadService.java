@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 @SpringBootApplication
 @EnableEurekaClient
@@ -25,6 +26,10 @@ public class CalidadService {
     @Autowired
     CalidadRepository calidadRepository;
 
+    public List<CalidadEntity> getCalidades(){
+        List<CalidadEntity> calidades = calidadRepository.findAll();
+        return calidades;
+    }
     private final Logger logg = LoggerFactory.getLogger(CalidadService.class);
 
     public String guardar(MultipartFile file) {
@@ -49,7 +54,7 @@ public class CalidadService {
     public void leerCsv(String direccion) {
         String texto = "";
         BufferedReader bf = null;
-        //calidadRepository.deleteAll();
+        calidadRepository.deleteAll();
         try {
             bf = new BufferedReader(new FileReader(direccion));
             String temp = "";
@@ -59,7 +64,7 @@ public class CalidadService {
                 if (count == 1) {
                     count = 0;
                 } else {
-                    //guardarDataDB(Integer.parseInt(bfRead.split(";")[0]), Integer.parseInt(bfRead.split(";")[1]), Integer.parseInt(bfRead.split(";")[2]));
+                    guardarDataDB(Integer.parseInt(bfRead.split(";")[0]), Integer.parseInt(bfRead.split(";")[1]), Integer.parseInt(bfRead.split(";")[2]));
                     temp = temp + "\n" + bfRead;
                 }
             }
@@ -80,11 +85,11 @@ public class CalidadService {
         calidadRepository.save(data);
     }
 
-
     public void guardarDataDB(Integer id_proveedor, Integer por_grasa, Integer por_solidos) {
         CalidadEntity newData = new CalidadEntity();
         newData.setPorGrasa(por_grasa);
         newData.setPorSolidos(por_solidos);
-        newData.setId_proveedodr(id_proveedor);
+        newData.setId_proveedor(id_proveedor);
+        guardarData(newData);
     }
 }

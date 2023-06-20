@@ -3,5 +3,5 @@ spring:
     name: gateway-service
   cloud:
     config:
-      enable: true
-      uri: http:// localhost:8081
+      enabled: true
+      uri: http://${HOSTNAME:localhost}:8081

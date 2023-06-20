@@ -15,9 +15,9 @@ import java.time.LocalDate;
 @NoArgsConstructor(force = true)
 public class AcopioEntity {
     @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_acopio;
+
     private Integer quincena;
     private Integer kls_leche;
     private LocalDate fecha;

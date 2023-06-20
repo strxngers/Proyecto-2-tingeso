@@ -1,4 +1,7 @@
 spring:
+  devtools:
+    restart:
+      aditional-paths: src/main/java
   application:
     name: pago-service
   cloud:
@@ -12,3 +15,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

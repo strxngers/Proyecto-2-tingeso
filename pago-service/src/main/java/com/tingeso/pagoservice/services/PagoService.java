@@ -21,6 +21,14 @@ public class PagoService {
     @Autowired
     RestTemplate restTemplate;
 
+    public AcopioModel acopioByProveedor(Integer id_proveedor){
+        AcopioModel acopio = restTemplate.getForObject("http://acopio-service/acopio/" + id_proveedor, AcopioModel.class);
+        if(acopio == null){
+            return null;
+        }
+        return acopio;
+    }
+
     public List<AcopioModel> acopiosByProveedor(Integer id_proveedor){
         List<AcopioModel> acopio = restTemplate.getForObject("http://acopio-service/acopio/" + id_proveedor, List.class);
         if(acopio.isEmpty()){

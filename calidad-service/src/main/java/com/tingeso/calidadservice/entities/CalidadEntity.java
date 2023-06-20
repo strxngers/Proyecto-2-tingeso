@@ -17,5 +17,5 @@ public class CalidadEntity {
     private Integer idCalidad;
     private Integer porGrasa;
     private Integer porSolidos;
-    private Integer id_proveedodr;
+    private Integer id_proveedor;
 }
