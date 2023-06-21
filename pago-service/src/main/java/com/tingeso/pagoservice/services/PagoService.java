@@ -53,6 +53,7 @@ public class PagoService {
         return proveedores;
     }
 
+
     public ProveedorModel proveedorById(Integer id_proveedor){
         ProveedorModel proveedor = restTemplate.getForObject("http://proveedor-service/proveedor/" + id_proveedor, ProveedorModel.class);
         return proveedor;

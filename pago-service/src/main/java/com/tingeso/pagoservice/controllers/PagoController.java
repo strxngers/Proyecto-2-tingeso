@@ -18,15 +18,6 @@ public class PagoController {
     @Autowired
     PagoService pagoService;
 
-    @GetMapping("/acopio/{codigo}")
-    public ResponseEntity<AcopioModel> acopioByCodigo(@PathVariable Integer codigo){
-        return ResponseEntity.ok(pagoService.acopioByProveedor(codigo));
-    }
-    @GetMapping("/prueba/{codigo}")
-    public ProveedorModel proveedorById(@PathVariable Integer codigo){
-        return pagoService.proveedorById(codigo);
-    }
-
     @GetMapping
     public ResponseEntity<List<PagoEntity>> getPagos(){
         List<PagoEntity> pagos = pagoService.planillaPago();
@@ -35,5 +26,21 @@ public class PagoController {
         }
         return ResponseEntity.ok(pagos);
     }
+
+    @GetMapping("/prueba")
+    public String str(){
+        return "a";
+    }
+
+    @GetMapping("/getacopio/{idprov}")
+    public ResponseEntity<AcopioModel> acopioByCodigo(@PathVariable Integer idprov){
+        return ResponseEntity.ok(pagoService.acopioByProveedor(idprov));
+    }
+    @GetMapping("/a/{idprov}")
+    public ProveedorModel proveedorById(@PathVariable Integer idprov){
+        return pagoService.proveedorById(idprov);
+    }
+
+
 
 }
