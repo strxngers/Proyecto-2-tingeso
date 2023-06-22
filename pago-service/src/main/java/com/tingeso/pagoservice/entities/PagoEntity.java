@@ -11,31 +11,31 @@ import javax.persistence.*;
 @Table(name = "pago")
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(force = true)
 public class PagoEntity {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_pago;
     private Integer id_proveedor;
-    private String nombreProveedor;
-    private Integer totalKlsLeche;
-    private Integer nroDiasDeEnvio;
-    private double promDiarioKlsLeche;
+    private String nombreproveedor;
+    private Integer totalklsleche;
+    private Integer nrodiasdeenvio;
+    private double promdiarioklsleche;
     private double variacionLeche;
-    private Integer porGrasa;
-    private double varGrasa;
-    private Integer solidosTotales;
-    private double varST;
-    private  double pagoXLeche;
-    private  double pagoXGrasa;
-    private  double pagoXST;
-    private double bonoFrecuencia;
-    private double dctoVarLeche;
-    private double dctoVarGrasa;
-    private double dctoVarST;
-    private double pagoTotal;
+    private Integer porgrasa;
+    private double vargrasa;
+    private Integer solidostotales;
+    private double varst;
+    private double pagoxleche;
+    private double pagoxgrasa;
+    private double pagoxst;
+    private double bonofrecuencia;
+    private double dctovarleche;
+    private double dctovargrasa;
+    private double dctovarst;
+    private double pagototal;
     private double retencion;
-    private double montoFinal;  // Monto final
+    private double montofinal;  // Monto final
     private String fecha; // AAAA/MM/QUINCENA
 }

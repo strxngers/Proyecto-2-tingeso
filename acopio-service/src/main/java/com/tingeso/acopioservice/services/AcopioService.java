@@ -16,6 +16,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -106,4 +107,16 @@ public class AcopioService {
         }
         return quincena;
     }
+
+    public List<AcopioEntity> getByProveedor(Integer id_proveedor){
+        List<AcopioEntity> aux = acopioRepository.findAll();
+        List<AcopioEntity> proveedores = new ArrayList<>();
+        for(int i = 0; i < aux.size(); i++){
+            if(aux.get(i).getId_proveedor().equals(id_proveedor)){
+                proveedores.add(aux.get(i));
+            }
+        }
+        return proveedores;
+    }
+
 }

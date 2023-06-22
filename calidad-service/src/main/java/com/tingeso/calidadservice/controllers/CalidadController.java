@@ -31,4 +31,31 @@ public class CalidadController {
         calidadService.leerCsv("Calidad.csv");
         return "Se leyó correctamente";
     }
+
+    @GetMapping("/{idprov}")
+    public ResponseEntity<CalidadEntity> getByCodigo(@PathVariable Integer idprov){
+        CalidadEntity calidad = calidadService.getByProveedor(idprov);
+        if(calidad == null){
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(calidad);
+    }
+
+    @GetMapping("/grasa/{idprov}")
+    public ResponseEntity<Integer> getGrasa(@PathVariable Integer idprov){
+        Integer grasa = calidadService.getGrasa(idprov);
+        if(grasa == null){
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(grasa);
+    }
+
+    @GetMapping("/st/{idprov}")
+    public ResponseEntity<Integer> getSt(@PathVariable Integer idprov){
+        Integer st = calidadService.getSt(idprov);
+        if(st == null){
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(st);
+    }
 }

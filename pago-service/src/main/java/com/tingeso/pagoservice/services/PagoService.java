@@ -6,7 +6,10 @@ import com.tingeso.pagoservice.models.CalidadModel;
 import com.tingeso.pagoservice.models.ProveedorModel;
 import com.tingeso.pagoservice.repositories.PagoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDate;
@@ -21,38 +24,77 @@ public class PagoService {
     @Autowired
     RestTemplate restTemplate;
 
-    public AcopioModel acopioByProveedor(Integer id_proveedor){
-        AcopioModel acopio = restTemplate.getForObject("http://acopio-service/acopio/" + id_proveedor, AcopioModel.class);
-        if(acopio == null){
+    public List<AcopioModel> acopiosByProveedor(Integer id_proveedor) {
+        try {
+            ResponseEntity<List<AcopioModel>> response = restTemplate.exchange(
+                    "http://acopio-service/acopio/{id}",
+                    HttpMethod.GET,
+                    null,
+                    new ParameterizedTypeReference<List<AcopioModel>>() {},
+                    id_proveedor
+            );
+
+            List<AcopioModel> acopio = response.getBody();
+
+            if (acopio == null || acopio.isEmpty()) {
+                return null;
+            }
+
+            return acopio;
+        } catch (HttpClientErrorException.NotFound ex) {
             return null;
         }
-        return acopio;
     }
 
-    public List<AcopioModel> acopiosByProveedor(Integer id_proveedor){
-        List<AcopioModel> acopio = restTemplate.getForObject("http://acopio-service/acopio/" + id_proveedor, List.class);
-        if(acopio.isEmpty()){
-            return null;
+
+    public CalidadModel calidadByProveedor(Integer id_proveedor) {
+        try {
+            ResponseEntity<CalidadModel> responseEntity = restTemplate.getForEntity(
+                    "http://calidad-service/{idprov}",
+                    CalidadModel.class,
+                    id_proveedor
+            );
+
+            if (responseEntity.getStatusCode() == HttpStatus.OK) {
+                return responseEntity.getBody();
+            } else {
+                // Manejar otros códigos de estado aquí si es necesario
+                return null;
+            }
+        } catch (HttpClientErrorException ex) {
+            if (ex.getStatusCode() == HttpStatus.NOT_FOUND) {
+                return null;
+            } else {
+                // Manejar otros códigos de estado aquí si es necesario
+                return null;
+            }
         }
-        return acopio;
     }
 
-    public List<CalidadModel> calidadByProveedor(Integer id_proveedor){
-        List<CalidadModel> calidad = restTemplate.getForObject("http://calidad-service/calidad/" + id_proveedor, List.class);
-        if(calidad.isEmpty()){
-            return null;
-        }
-        return calidad;
+    public Integer getGrasa(Integer id_proveedor){
+        return restTemplate.getForObject("http://calidad-service/calidad/grasa/" + id_proveedor, Integer.class);
     }
 
-    public List<ProveedorModel> getProveedores(){
-        List<ProveedorModel> proveedores = restTemplate.getForObject("http://proveedor-service/proveedor", List.class);
-        if(proveedores.isEmpty()){
+    public Integer getSt(Integer id_proveedor){
+        return restTemplate.getForObject("http://calidad-service/calidad/st/" + id_proveedor, Integer.class);
+    }
+
+    public List<ProveedorModel> getProveedores() {
+        ResponseEntity<List<ProveedorModel>> response = restTemplate.exchange(
+                "http://proveedor-service/proveedor",
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<List<ProveedorModel>>() {}
+        );
+
+        List<ProveedorModel> proveedores = response.getBody();
+
+        if (proveedores == null || proveedores.isEmpty()) {
             return null;
         }
+
         return proveedores;
     }
-
 
     public ProveedorModel proveedorById(Integer id_proveedor){
         ProveedorModel proveedor = restTemplate.getForObject("http://proveedor-service/proveedor/" + id_proveedor, ProveedorModel.class);
@@ -61,7 +103,9 @@ public class PagoService {
 
     public List<PagoEntity> planillaPago(){
         planillaProveedores();
+        //System.out.print("a");
         return pagoRepository.findAll();
+
     }
 
     public void planillaProveedores(){
@@ -75,38 +119,38 @@ public class PagoService {
     public void calcularPago(Integer id_proveedor){
         ProveedorModel proveedor = proveedorById(id_proveedor);    // Encontrar al proveedor para poder saber cuantos kilos de leche trajo
         List<AcopioModel> acopiosProveedor = acopiosByProveedor(id_proveedor);   // Listar los acopios del proveedor
-        if(calidadByProveedor(id_proveedor).isEmpty() || acopiosByProveedor(id_proveedor).isEmpty()){
+        if(getGrasa(id_proveedor) == null && getSt(id_proveedor) == null || acopiosByProveedor(id_proveedor).isEmpty()){
             return;
         }
-        CalidadModel calidad = calidadByProveedor(id_proveedor).get(0);  // saber la calidad del acopio de leche
         PagoEntity pago = new PagoEntity(); // Pago para settear
         Integer klsLeche = getKlsLeche(id_proveedor);   // kls totales
-        pago.setTotalKlsLeche(klsLeche);
+        pago.setTotalklsleche(klsLeche);
         Integer dias = getDiasEnvio(id_proveedor);  // días que mandó leche
-        Integer porGrasa = calidad.getPor_grasa();  // grasa del acopio
-        pago.setPorGrasa(porGrasa); // Cambiamos el % de grasa
-        pago.setSolidosTotales(calidad.getPor_solidos()); // cambiamos el % de st
+        Integer porGrasa = getGrasa(id_proveedor);  // grasa del acopio
+        Integer st = getSt(id_proveedor);   // % st
+        pago.setPorgrasa(porGrasa); // Cambiamos el % de grasa
+        pago.setSolidostotales(getSt(id_proveedor)); // cambiamos el % de st
         // Info proveedor fecha
         infoProveedorFecha(proveedor,acopiosProveedor,pago);
         //
-        pago.setNroDiasDeEnvio(dias);
+        pago.setNrodiasdeenvio (dias);
         // Pagos
-        pago.setPromDiarioKlsLeche(promKls(klsLeche, dias));
-        pago.setPagoXLeche(montoCategoria(proveedor.getCategoria(),klsLeche));
-        pago.setPagoXGrasa(pagoPorGrasa(porGrasa,klsLeche));
-        pago.setPagoXST(pagoPorSolidos(calidad.getPor_solidos(),klsLeche));
-        double bonos = bonificaciones(id_proveedor, pago.getPagoXLeche());    // Calculo de bonos
-        pago.setBonoFrecuencia(bonos);
+        pago.setPromdiarioklsleche(promKls(klsLeche, dias));
+        pago.setPagoxleche(montoCategoria(proveedor.getCategoria(),klsLeche));
+        pago.setPagoxgrasa(pagoPorGrasa(porGrasa,klsLeche));
+        pago.setPagoxst(pagoPorSolidos(st,klsLeche));
+        double bonos = bonificaciones(id_proveedor, pago.getPagoxleche());    // Calculo de bonos
+        pago.setBonofrecuencia(bonos);
         // Pago por leche
-        double pagoLeche = pagoAcopioLeche(proveedor.getCategoria(),klsLeche,porGrasa,calidad.getPor_solidos(), proveedor.getId_proveedor());
+        double pagoLeche = pagoAcopioLeche(proveedor.getCategoria(),klsLeche,porGrasa,st, proveedor.getId_proveedor());
         // Variaciones
-        todasLasVariaciones(id_proveedor,pago, klsLeche, porGrasa, calidad.getPor_solidos());
+        todasLasVariaciones(id_proveedor,pago, klsLeche, porGrasa, st);
         // Descuentos
         descuentos(pago,pagoLeche);
         // pago total
         pagoTotal(pago, pagoLeche);
-        pago.setRetencion(retencion(proveedor, pago.getPagoTotal()));
-        pago.setMontoFinal(pago.getPagoTotal() - pago.getRetencion());
+        pago.setRetencion(retencion(proveedor, pago.getPagototal()));
+        pago.setMontofinal(pago.getPagototal() - pago.getRetencion());
         if (!exist(pago)){
             pagoRepository.save(pago);
         }
@@ -170,18 +214,18 @@ public class PagoService {
     }
 
     public void pagoTotal(PagoEntity pago, double pagoLeche){
-        double dcto = pago.getDctoVarST()+pago.getDctoVarGrasa()+pago.getDctoVarLeche();
+        double dcto = pago.getDctovarst()+pago.getDctovargrasa()+pago.getDctovarleche();
         double total = pagoLeche-dcto;
         if (total < 0){
             total= total*(-1);
         }
-        pago.setPagoTotal(total);
+        pago.setPagototal(total);
     }
 
     public void infoProveedorFecha(ProveedorModel proveedor, List<AcopioModel> acopiosProveedor, PagoEntity pago){
         pago.setFecha(nuevaFecha(acopiosProveedor.get(0).getFecha().toString()));   // formato de fecha
         pago.setId_proveedor(proveedor.getId_proveedor());
-        pago.setNombreProveedor(proveedor.getNombre());
+        pago.setNombreproveedor(proveedor.getNombre());
     }
 
     public List<PagoEntity> pagosByCodigo(Integer id_proveedor) {
@@ -198,23 +242,23 @@ public class PagoService {
         List<PagoEntity> pagosProveedor = pagosByCodigo(id_proveedor);
         if(pagosProveedor.isEmpty()){
             pagos.setVariacionLeche(0.0);
-            pagos.setVarGrasa(0.0);
-            pagos.setVarST(0.0);
+            pagos.setVargrasa(0.0);
+            pagos.setVarst(0.0);
         }else {
             Integer cant = (pagosProveedor.size() - 1);
-            Double varLeche = variacion(pagosProveedor.get(cant).getTotalKlsLeche(), klsLeche);
-            Double varGrasa = varGrasaySolido(pagosProveedor.get(cant).getPorGrasa(), porGrasa);
-            Double varSolidos = varGrasaySolido(pagosProveedor.get(cant).getSolidosTotales(), porST);
+            Double varLeche = variacion(pagosProveedor.get(cant).getTotalklsleche(), klsLeche);
+            Double varGrasa = varGrasaySolido(pagosProveedor.get(cant).getPorgrasa(), porGrasa);
+            Double varSolidos = varGrasaySolido(pagosProveedor.get(cant).getSolidostotales(), porST);
             pagos.setVariacionLeche(varLeche);
-            pagos.setVarGrasa(varGrasa);
-            pagos.setVarST(varSolidos);
+            pagos.setVargrasa(varGrasa);
+            pagos.setVarst(varSolidos);
         }
     }
 
     public void descuentos(PagoEntity pagos, double pagoTotal){
-        pagos.setDctoVarLeche(dctoLeche(pagos.getVariacionLeche(), pagoTotal));
-        pagos.setDctoVarGrasa(dctoGrasa(pagos.getVarGrasa(),pagoTotal));
-        pagos.setDctoVarST(dctoSolidos(pagos.getVarST(),pagoTotal));
+        pagos.setDctovarleche(dctoLeche(pagos.getVariacionLeche(), pagoTotal));
+        pagos.setDctovargrasa(dctoGrasa(pagos.getVargrasa(),pagoTotal));
+        pagos.setDctovarst(dctoSolidos(pagos.getVarst(),pagoTotal));
     }
 
     public double retencion(ProveedorModel proveedor, double pagoTotal){
@@ -257,7 +301,7 @@ public class PagoService {
     public Integer getKlsLeche(Integer id_proveedor){
         ProveedorModel proveedor = proveedorById(id_proveedor);
         Integer kilos = 0;
-        List<AcopioModel> acopiosprov = restTemplate.getForObject("http://acopio-service/acopio/proveedor/" + id_proveedor, List.class);
+        List<AcopioModel> acopiosprov = acopiosByProveedor(id_proveedor);
 
         for (AcopioModel acopio: acopiosprov
         ) {
@@ -269,7 +313,7 @@ public class PagoService {
     public int getDiasEnvio(int id_proveedor) {
         int contDias = 0;
         ProveedorModel proveedor = proveedorById(id_proveedor);
-        List<AcopioModel> acopios = restTemplate.getForObject("http://acopio-service/acopio/proveedor/" + id_proveedor, List.class);
+        List<AcopioModel> acopios = acopiosByProveedor(id_proveedor);
         for (int i = 0; i < acopios.size() - 1; i++) {
             AcopioModel acopioA = acopios.get(i);  // Acopio actual
             AcopioModel acopioB = acopios.get(i + 1);  // Acopio sgte
@@ -294,7 +338,7 @@ public class PagoService {
     }
 
     public double bonificaciones(Integer id_proveedor, double pagoLeche) {
-        List<AcopioModel> acopProv = restTemplate.getForObject("http://acopio-service/acopio/proveedor/" + id_proveedor, List.class);
+        List<AcopioModel> acopProv = acopiosByProveedor(id_proveedor);
         List<Integer> list = mrngT(acopProv);
         double bono= porcent(list.get(0), list.get(1));
         return bono*pagoLeche;
@@ -368,7 +412,7 @@ public class PagoService {
     }
 
     public static double variacion(double valorFinal, double valorInicial) {
-        return Math.round(((valorFinal - valorInicial) / valorInicial) * 100);
+        return ((valorFinal - valorInicial) / valorInicial) * 100;
     }
 
     public Double varGrasaySolido(Integer nuevoTotal, Integer valor_antiguo){

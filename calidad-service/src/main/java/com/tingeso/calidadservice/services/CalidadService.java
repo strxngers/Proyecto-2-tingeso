@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
@@ -92,4 +93,25 @@ public class CalidadService {
         newData.setId_proveedor(id_proveedor);
         guardarData(newData);
     }
+    public CalidadEntity getByProveedor(Integer id_proveedor){
+        List<CalidadEntity> aux = calidadRepository.findAll();
+        List<CalidadEntity> calidad = new ArrayList<>();
+        for(int i = 0; i < aux.size(); i++){
+            if(aux.get(i).getId_proveedor().equals(id_proveedor)){
+                calidad.add(aux.get(i));
+            }
+        }
+        return calidad.get(0);
+    }
+
+    public Integer getGrasa(Integer id_proveedor){
+        CalidadEntity aux = getByProveedor(id_proveedor);
+        return aux.getPorGrasa();
+    }
+
+    public Integer getSt(Integer id_proveedor){
+        CalidadEntity aux = getByProveedor(id_proveedor);
+        return aux.getPorSolidos();
+    }
+
 }

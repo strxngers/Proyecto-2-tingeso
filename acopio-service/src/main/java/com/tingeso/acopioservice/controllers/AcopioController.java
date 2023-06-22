@@ -25,6 +25,15 @@ public class AcopioController {
         return ResponseEntity.ok(acopios);
     }
 
+    @GetMapping("/{idprov}")
+    public ResponseEntity<List<AcopioEntity>> getByCodigo(@PathVariable Integer idprov){
+        List<AcopioEntity> acopio = acopioService.getByProveedor(idprov);
+        if(acopio == null){
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(acopio);
+    }
+
     @PostMapping("/uploadklsleche")
     public String uploadKlsleche(@RequestParam("file") MultipartFile file) {
         acopioService.guardar(file);
