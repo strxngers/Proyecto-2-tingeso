@@ -1,0 +1,36 @@
+*{
+    font-family: "Segoe IU", sans-serif;
+    box-sizing: border-box;
+    color: rgb(62, 194, 251);
+  }
+  .data_card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 80px;
+    background: #E7D3AF;
+    margin: 1em;
+    padding: 1em 2.5em;
+  }
+  .btn_2 button {
+    margin-left: 20px;
+    font-weight: 700;
+    padding: 9px 40px;
+    background: #F3F0ED;
+    border: none;
+    border-radius: 80px;
+    cursor: pointer;
+  
+  }
+  .btn_2 button:hover{
+    background-color: #F3F0ED;
+    transform: scale(0.95);
+  }
+  a{
+    color: black;
+    font-family: 'Brush Script MT',serif;
+  }
+  a:hover{
+    color: black;
+    font-family: 'Brush Script MT',serif;
+    text-decoration: none;
+  }

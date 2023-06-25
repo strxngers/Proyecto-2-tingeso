@@ -36,6 +36,6 @@ public class PagoEntity {
     private double dctovarst;
     private double pagototal;
     private double retencion;
-    private double montofinal;  // Monto final
-    private String fecha; // AAAA/MM/QUINCENA
+    private double montofinal;
+    private String fecha;
 }

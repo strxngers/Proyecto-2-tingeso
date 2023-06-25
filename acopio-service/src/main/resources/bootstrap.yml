@@ -11,7 +11,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/acopio
     username: postgres
-    password: 2214
+    password: 221422
   jpa:
     hibernate:
       ddl-auto: update

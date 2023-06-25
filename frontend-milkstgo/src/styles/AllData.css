@@ -1,0 +1,81 @@
+* {
+  font-family: sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.content-table {
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.9em;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  overflow-x: auto;
+  border: none; /* Eliminar el borde */
+  border-collapse: collapse; /* Fusionar las líneas de la tabla */
+}
+
+.content-table thead tr {
+  color: black;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+  border-bottom: none; /* Eliminar la línea separadora entre filas */
+  border-right: 1px solid black; /* Agregar línea separadora entre columnas */
+}
+
+.content-table th:last-child,
+.content-table td:last-child {
+  border-right: none; /* No aplicar línea separadora en la última columna */
+}
+
+.content-table thead tr:first-child {
+  border-bottom: 1px solid black; /* Agregar línea separadora en la primera fila */
+}
+
+.header {
+  background-color: #E7D3AF;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 85px;
+  padding: 5px 10%;
+}
+
+.header .logo {
+  margin-right: auto;
+  color: black;
+  font-family: 'Brush Script MT', serif;
+}
+
+.h1 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.a {
+  color: black;
+  font-family: 'Brush Script MT', serif;
+}
+
+.a:hover {
+  color: black;
+  font-family: 'Brush Script MT', serif;
+  text-decoration: none;
+}
+
+.table-container {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.content-table th,
+.content-table td {
+  font-family: 'Roboto', Arial, sans-serif; /* Cambiar a una fuente más redonda */
+}
