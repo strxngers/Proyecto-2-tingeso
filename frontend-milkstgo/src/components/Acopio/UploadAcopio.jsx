@@ -4,12 +4,14 @@ import swal from 'sweetalert';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import '../../styles/UploadData.css';
+import NavbarAll from '../Navbar';
 
 class UploadAcopio extends Component {
   constructor(props) {
     super(props);
     this.state = {
       file: null,
+      redirectToCalidad: false,
     };
     this.onFileChange = this.onFileChange.bind(this);
   }
@@ -27,7 +29,7 @@ class UploadAcopio extends Component {
       AcopioService.uploadData(formData)
         .then(() => {
           swal('¡Archivo guardado con éxito!', '', 'success').then(() => {
-            this.props.history.push('/calidad');
+            window.location.href = '/calidad'; // Redireccionar utilizando window.location.href
           });
         })
         .catch(() => {
@@ -39,18 +41,19 @@ class UploadAcopio extends Component {
   render() {
     return (
       <div>
-        <div className="image-upload-wrap">
-          <div className="container">
-            <h1>
-              <b>Cargar el archivo de datos</b>
+        <NavbarAll />
+        <div className="upload-page-contain">
+          <div className="upload-data-card">
+            <h1 className="upload-h1">
+              <b>Cargar información de acopio</b>
             </h1>
             <Form.Group controlId="formFileLg">
               <br />
-              <Form.Control className="file-upload-btn" type="file" size="lg" onChange={this.onFileChange} />
+              <Form.Control className="upload-file-upload-btn" type="file" size="lg" onChange={this.onFileChange} />
               <br />
             </Form.Group>
-            <Button className="file-upload-btn" onClick={this.onFileUpload}>
-              Cargar el archivo a la Base de Datos
+            <Button className="upload-submit-btn" onClick={this.onFileUpload}>
+              Cargar información
             </Button>
           </div>
         </div>

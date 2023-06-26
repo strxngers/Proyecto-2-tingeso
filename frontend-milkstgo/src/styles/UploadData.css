@@ -1,62 +1,66 @@
-.page-contain {
-    display: flex;
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
-    background: #F3F0ED;
-    padding: 2em;
-    font-family: "Open Sans", sans-serif;
-  }
-  
-  .data-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centrar horizontalmente */
-    justify-content: center; /* Centrar verticalmente */
-    max-width: 22em;
-    min-height: 22em;
-    border-radius: 0.5em;
-    background: #E7D3AF;
-    margin: 5em;
-    padding: 2.75em 2.5em;
-  }
-  
-  h4 {
-    text-transform: uppercase;
-    font-size: 1.125em;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    margin: 2em;
-    color: black;
-  }
-  
-  p {
-    font-weight: 600;
-  }
-  
-  .header .btn button {
-    margin-left: 20px;
-    font-weight: 700;
-    padding: 9px 40px;
-    background: #F3F0ED;
-    border: none;
-    border-radius: 80px;
-    cursor: pointer;
-  }
-  
-  .header .btn button:hover {
-    background-color: #F3F0ED;
-    transform: scale(0.95);
-  }
-  
-  .a {
-    color: black;
-    font-family: 'Brush Script MT', serif;
-  }
-  
-  .a:hover {
-    color: black;
-    font-family: 'Brush Script MT', serif;
-    text-decoration: none;
-  }
-  
+.upload-page-contain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #69c3f7;
+  padding: 2em; /* Ajustar el espacio de padding según sea necesario */
+}
+
+.upload-data-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 30em;
+  border-radius: 0.5em;
+  background-color: #fff;
+  padding: 2.75em 2.5em;
+}
+
+
+.upload-h1 {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 1em;
+  color: black;
+}
+
+.upload-file-upload-btn {
+  display: block;
+  margin: 1em auto;
+  font-weight: bold;
+  padding: 9px 40px;
+  background-color: transparent;
+  border: 2px solid #69c3f7;
+  border-radius: 50px;
+  cursor: pointer;
+  color: #69c3f7;
+}
+
+.upload-file-upload-btn:hover {
+  background-color: #69c3f7;
+  color: white;
+  transform: scale(0.95);
+}
+
+.upload-file-upload-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.upload-submit-btn {
+  display: block;
+  margin: 1em auto;
+  font-weight: bold;
+  padding: 9px 40px;
+  background-color: #69c3f7;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  color: white;
+}
+
+.upload-submit-btn:hover {
+  background-color: #5aafe7;
+  transform: scale(0.95);
+}

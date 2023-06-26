@@ -1,35 +1,75 @@
-.App {
+/* HomeComponente.css */
+
+/* Estilos generales de la página de inicio */
+.home-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.card {
+  width: 300px;
+  height: 200px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card:nth-child(even) {
+  background-color: #e0e0e0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  
+.card-description {
+  font-size: 16px;
+  color: #555;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Estilos específicos de cada card */
+.create-provider-card {
+  background-color: #ffb74d;
+}
+
+.view-providers-card {
+  background-color: #4db6ac;
+}
+
+.enter-collection-card {
+  background-color: #9575cd;
+}
+
+.enter-quality-card {
+  background-color: #f06292;
+}
+
+.view-payments-card {
+  background-color: #ff8a65;
+}
+
+/* Estilos de los enlaces en los botones */
+.card-link {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #e0e0e0;
+  padding: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  line-height: 30px;
+  transition: background-color 0.3s;
+}
+
+.card-link:hover {
+  background-color: #bdbdbd;
 }

@@ -1,0 +1,50 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid #ccc;
+}
+
+.navbarTitle,
+.navbar h1 {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #333;
+  text-transform: uppercase;
+  font-family: 'Pacifico', cursive;
+}
+
+.navbarButtons {
+  display: flex;
+}
+
+.navbarButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  padding: 8px;
+  border-radius: 50%;
+  background-color: #69c3f7;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.navbarButton:first-child {
+  margin-left: 0;
+}
+
+.navbarButton:hover {
+  background-color: #dedd9e;
+}
+
+.roundedButton {
+  border-radius: 50px; /* Aumenta el valor para hacer los botones más redondos */
+}
+.container {
+  margin: 20px;
+}

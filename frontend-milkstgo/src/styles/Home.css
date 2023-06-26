@@ -1,0 +1,54 @@
+/* Home.css */
+.home-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+}
+
+.card {
+  width: 300px;
+  height: 200px;
+  padding: 20px;
+  background-color: #519bc9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+  text-align: center;
+  transition: box-shadow 0.3s ease; /* Agregada la transición */
+  color: #fff; /* Cambio el color de las letras a blanco */
+}
+
+.card:nth-child(even) {
+  background-color: #5ba9f0;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.card-link {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Efecto de iluminación intensificado */
+}
+
+.card-link:hover {
+  background-color: #555;
+}

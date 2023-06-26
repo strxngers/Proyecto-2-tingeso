@@ -6,15 +6,16 @@
 }
 
 .content-table {
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   font-size: 0.9em;
   border-radius: 5px 5px 0 0;
   overflow: hidden;
   overflow-x: auto;
-  border: none; /* Eliminar el borde */
-  border-collapse: collapse; /* Fusionar las líneas de la tabla */
+  border: none;
+  border-collapse: collapse;
+  background-color: #fff;
 }
 
 .content-table thead tr {
@@ -26,17 +27,18 @@
 .content-table th,
 .content-table td {
   padding: 12px 15px;
-  border-bottom: none; /* Eliminar la línea separadora entre filas */
-  border-right: 1px solid black; /* Agregar línea separadora entre columnas */
+  border-bottom: none;
+  border-right: 1px solid black;
+  font-family: 'Roboto', Arial, sans-serif;
 }
 
 .content-table th:last-child,
 .content-table td:last-child {
-  border-right: none; /* No aplicar línea separadora en la última columna */
+  border-right: none;
 }
 
 .content-table thead tr:first-child {
-  border-bottom: 1px solid black; /* Agregar línea separadora en la primera fila */
+  border-bottom: 1px solid black;
 }
 
 .header {
@@ -48,9 +50,8 @@
   padding: 5px 10%;
 }
 
-.header .logo {
-  margin-right: auto;
-  color: black;
+.header .logo h1 {
+  color: white; /* Cambiar el color a blanco */
   font-family: 'Brush Script MT', serif;
 }
 
@@ -73,9 +74,4 @@
 .table-container {
   overflow-x: auto;
   max-width: 100%;
-}
-
-.content-table th,
-.content-table td {
-  font-family: 'Roboto', Arial, sans-serif; /* Cambiar a una fuente más redonda */
 }

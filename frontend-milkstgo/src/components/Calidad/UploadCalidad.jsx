@@ -3,8 +3,8 @@ import CalidadService from '../../services/CalidadService';
 import swal from 'sweetalert';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import '../../styles/UploadData.css'
-
+import '../../styles/UploadData.css';
+import NavbarAll from '../Navbar';
 
 class UploadCalidad extends Component {
   constructor(props) {
@@ -27,8 +27,7 @@ class UploadCalidad extends Component {
       formData.append('file', this.state.file);
       CalidadService.uploadData(formData)
         .then(() => {
-          swal('¡Archivo guardado con éxito!', '', 'success').then(() => {
-          });
+          swal('¡Archivo guardado con éxito!', '', 'success').then(() => {});
         })
         .catch(() => {
           swal('Error al guardar el archivo', '', 'error');
@@ -39,22 +38,28 @@ class UploadCalidad extends Component {
   render() {
     return (
       <div>
-        <div className="image-upload-wrap">
-          <div className="container">
-            <h1>
-              <b>Cargar el archivo de datos</b>
-            </h1>
-            <Form.Group controlId="formFileLg">
-              <br />
-              <Form.Control className="file-upload-btn" type="file" size="lg" onChange={this.onFileChange} />
-              <br />
-            </Form.Group>
-            <Button className="file-upload-btn" onClick={this.onFileUpload}>
-              Cargar el archivo a la Base de Datos
-            </Button>
-          </div>
+      <NavbarAll />
+      <div className="upload-page-contain">
+        <div className="upload-data-card">
+          <h1 className="upload-h1">
+            <b>Cargar información sobre la calidad de la leche</b>
+          </h1>
+          <Form.Group controlId="formFileLg">
+            <br />
+            <Form.Control
+              className="upload-file-upload-btn"
+              type="file"
+              size="lg"
+              onChange={this.onFileChange}
+            />
+            <br />
+          </Form.Group>
+          <Button className="upload-file-upload-btn" onClick={this.onFileUpload}>
+            Cargar información
+          </Button>
         </div>
       </div>
+    </div>
     );
   }
 }

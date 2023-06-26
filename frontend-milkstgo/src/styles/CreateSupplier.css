@@ -1,109 +1,118 @@
 body {
-    background-color: #69c3f7;
-  }
-  
-  .mainclass {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Centrar verticalmente */
-    flex-direction: column; /* Cambiar a dirección de columna */
-    font-family: 'Roboto', Arial, sans-serif; /* Cambiar a fuente más redonda */
-    font-size: 15px;
-    text-align: center;
-    color: black; /* Cambiar a letras negras */
-    background-color: #69c3f7; /* Cambiar a un celeste más oscuro */
-  }
-  
-  form {
-    border: none; /* Quitar el borde */
-  }
-  
-  input[type=text], input[type=password] {
-    width: 100%;
-    padding: 16px 8px;
-    display: inline-block;
-    border: 1px solid #ccc; 
-    outline: none; 
-    box-sizing: border-box;
-    margin-bottom: 25px;
-    background-color: #69c3f7; 
-    color: white;
-    border-radius: 5px;
-  }
-  
-  input[type=text]:focus, input[type=password]:focus {
-    border-color: #000; 
-  }
-  
-  .formcontainer {
-    text-align: left;
-    margin: 24px 50px 12px;
-  }
-  
-  .container {
-    padding: 16px 0;
-    text-align: left;
-  }
-  
-  .container label {
-    display: block;
-  }
-  
-  .header {
-    background-color: #69c3f7;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 85px;
-    padding: 5px 10%;
-  }
-  
-  .header .logo {
-    margin-right: auto;
-    color: white; 
-    font-family: 'Roboto', Arial, sans-serif;
-  }
-  
-  .btn button {
-    margin-left: auto; /* Centrar horizontalmente */
-    margin-right: auto; /* Centrar horizontalmente */
-    font-weight: 700;
-    padding: 9px 40px;
-    background: #F3F0ED;
-    border: none;
-    border-radius: 80px;
-    cursor: pointer;
-    font-family: 'Roboto', Arial, sans-serif; /* Cambiar a fuente más redonda */
-  }
-  
-  .btn button:hover {
-    background-color: #F3F0ED;
-    transform: scale(0.95);
-  }
-  
-  .btn2 {
-    font-weight: 700;
-    padding: 9px 40px;
-    background: #ffffff;
-    border: none;
-    border-radius: 80px;
-    cursor: pointer;
-    font-family: 'Roboto', Arial, sans-serif; /* Cambiar a fuente más redonda */
-  }
-  
-  .btn2:hover {
-    background-color: #dedd9e;
-    transform: scale(0.95);
-  }
-  
-  .select {
-    width: 850px;
-    padding: 16px 8px;
-    margin-bottom: 25px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    color: rgb(85, 84, 84);
-    background-color: #69c3f7; 
-} 
+  background-color: #69c3f7;
+}
+
+.card {
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.mainclass {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centrar verticalmente */
+  flex-direction: column; /* Cambiar a dirección de columna */
+  font-family: 'Roboto', Arial, sans-serif; /* Cambiar a fuente más redonda */
+  font-size: 15px;
+  text-align: center;
+  color: black; /* Cambiar a letras negras */
+  background-color: #69c3f7; /* Cambiar a un celeste más oscuro */
+}
+
+form {
+  border: none; /* Quitar el borde */
+}
+
+input[type=text],
+input[type=password] {
+  width: 100%;
+  padding: 16px 8px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  outline: none;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+  background-color: #69c3f7;
+  color: white;
+  border-radius: 5px;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+  border-color: #000;
+}
+
+.formcontainer {
+  text-align: left;
+  margin: 24px 50px 12px;
+}
+
+.container {
+  padding: 16px 0;
+  text-align: left;
+}
+
+.container label {
+  display: block;
+}
+
+.header {
+  background-color: #69c3f7;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 85px;
+  padding: 5px 10%;
+}
+
+.header .logo {
+  margin-right: auto;
+  color: white;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+.btn button {
+  margin-left: auto; /* Centrar horizontalmente */
+  margin-right: auto; /* Centrar horizontalmente */
+  font-weight: 700;
+  padding: 9px 40px;
+  background: #F3F0ED;
+  border: none;
+  border-radius: 80px;
+  cursor: pointer;
+  font-family: 'Roboto', Arial, sans-serif; /* Cambiar a fuente más redonda */
+}
+
+.btn button:hover {
+  background-color: #F3F0ED;
+  transform: scale(0.95);
+}
+
+.btn2 {
+  font-weight: 700;
+  padding: 9px 40px;
+  background: #ffffff;
+  border: none;
+  border-radius: 80px;
+  cursor: pointer;
+  font-family: 'Roboto', Arial, sans-serif; /* Cambiar a fuente más redonda */
+}
+
+.btn2:hover {
+  background-color: #dedd9e;
+  transform: scale(0.95);
+}
+
+.select {
+  width: 850px;
+  padding: 16px 8px;
+  margin-bottom: 25px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  color: rgb(85, 84, 84);
+  background-color: #69c3f7;
+}
