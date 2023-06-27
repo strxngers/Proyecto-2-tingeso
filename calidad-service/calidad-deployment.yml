@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calidad-deployment
+  labels:
+    app: calidad-deployment
+spec:
+  selector:
+    matchLabels:
+      app: calidad-deployment
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: calidad-deployment
+    spec:
+      containers:
+        - name: calidad-service
+          image: ielenagm/calidadservice
+          ports:
+            - containerPort: 8083
+          env:
+            - name: spring.cloud.config.uri
+              value: http://config-service:8081
+            - name: spring.config.import
+              value: optional:configserver:http://config-service:8081
+            - name: eureka.client.serviceUrl.defaultZone
+              value: http://eureka-service:8761/eureka
+            - name: EUREKA
+              value: eureka-service
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-db
+                  key: host
+            - name: DB_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-db
+                  key: name
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-user-credentials
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-user-credentials
+                  key: password
