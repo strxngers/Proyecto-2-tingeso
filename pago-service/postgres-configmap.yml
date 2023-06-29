@@ -4,4 +4,4 @@ metadata:
   name: postgres-db
 data:
   host: postgres
-  name: proveedor
+  name: pago
