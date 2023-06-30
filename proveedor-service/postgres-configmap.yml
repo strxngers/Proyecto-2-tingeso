@@ -4,4 +4,7 @@ metadata:
   name: postgres-db
 data:
   host: postgres
-  name: proveedor
+  name1: pago
+  name2: calidad
+  name3: proveedor
+  name4: acopio

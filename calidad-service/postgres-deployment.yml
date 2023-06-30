@@ -1,33 +1,33 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: postgres
+  name: postgres-calidad
   labels:
-    app: postgres
+    app: postgres-calidad
 spec:
   ports:
     - port: 5432
       targetPort: 5432
   selector:
-    app: postgres
+    app: postgres-calidad
   clusterIP: None
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: postgres
+  name: postgres-calidad
   labels:
-    app: postgres
+    app: postgres-calidad
 spec:
   selector:
     matchLabels:
-      app: postgres
+      app: postgres-calidad
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: postgres
+        app: postgres-calidad
     spec:
       containers:
         - image: postgres:latest
@@ -47,24 +47,24 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: postgres-db
-                  key: name
+                  key: name2
           ports:
             - containerPort: 5432
               name: postgres
           volumeMounts:
-            - name: postgres-persistent-storage
+            - name: postgres-calidad-persistent-storage
               mountPath: /var/lib/postgresql/data
       volumes:
-        - name: postgres-persistent-storage
+        - name: postgres-calidad-persistent-storage
           persistentVolumeClaim:
-            claimName: postgres-pv-claim
+            claimName: postgres-calidad-pv-claim
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: postgres-pv-claim
+  name: postgres-calidad-pv-claim
   labels:
-    app: postgres
+    app: postgres-calidad
     tier: database
 spec:
   accessModes:

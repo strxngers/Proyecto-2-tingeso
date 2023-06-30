@@ -28,16 +28,13 @@ spec:
               value: http://eureka-service:8761/eureka
             - name: EUREKA
               value: eureka-service
-            - name: DB_HOST
-              valueFrom:
-                configMapKeyRef:
-                  name: postgres-db
-                  key: host
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://postgres-pago:5432/pago
             - name: DB_NAME
               valueFrom:
                 configMapKeyRef:
                   name: postgres-db
-                  key: name
+                  key: name3
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:

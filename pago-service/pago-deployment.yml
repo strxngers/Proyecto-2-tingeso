@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: pago-deployment
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -28,20 +28,17 @@ spec:
               value: http://eureka-service:8761/eureka
             - name: EUREKA
               value: eureka-service
-            - name: DB_HOST
-              valueFrom:
-                configMapKeyRef:
-                  name: mysql-db
-                  key: host
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://postgres-pago:5432/pago
             - name: DB_NAME
               valueFrom:
                 configMapKeyRef:
                   name: postgres-db
-                  key: name
+                  key: name1
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: postgres-user-credential
+                  name: postgres-user-credentials
                   key: username
             - name: DB_PASSWORD
               valueFrom:

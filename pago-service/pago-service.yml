@@ -8,7 +8,7 @@ spec:
   selector:
     app: pago-deployment
   ports:
-    protocol: TCP
-    port: 8085
-    targetPort: 8085
+    - protocol: TCP
+      port: 8085
+      targetPort: 8085
   type: LoadBalancer

@@ -5,6 +5,7 @@ metadata:
   labels:
     app: config-deployment
 spec:
+
   selector:
     matchLabels:
       app: config-deployment

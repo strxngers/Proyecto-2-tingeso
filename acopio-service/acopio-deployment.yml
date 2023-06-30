@@ -28,6 +28,8 @@ spec:
               value: http://eureka-service:8761
             - name: EUREKA
               value: eureka-service
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://postgres-acopio:5432/acopio
             - name: DB_HOST
               valueFrom:
                 configMapKeyRef:
@@ -37,7 +39,7 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: postgres-db
-                  key: name
+                  key: name4
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:

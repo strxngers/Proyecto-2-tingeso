@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: calidad-deployment
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -28,16 +28,13 @@ spec:
               value: http://eureka-service:8761/eureka
             - name: EUREKA
               value: eureka-service
-            - name: DB_HOST
-              valueFrom:
-                configMapKeyRef:
-                  name: postgres-db
-                  key: host
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://postgres-calidad:5432/calidad
             - name: DB_NAME
               valueFrom:
                 configMapKeyRef:
                   name: postgres-db
-                  key: name
+                  key: name2
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:
